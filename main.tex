@@ -64,7 +64,7 @@
 
 \subsection{Architektury systemów baz danych}
 
-\subsubsection{Trówarstwowa architektura ANSI-SPARC}
+\subsubsection{Trójwarstwowa architektura ANSI-SPARC}
 \begin{itemize}
     \item \textbf{Warstwa zewnętrzna} - dostarcza \textbf{niezależne, spersonalizowane widoki} użytkownikom. Użytkownicy nie muszą mieć dostępu do szczegółów.
     \item \textbf{Warstwa konceptualna} - dostarcza \textbf{jednolitego, globalnego widoku} danych i ich wzajemnych powiązań. Jest \textbf{niezależna od użytkowników}. Dostęp do niej mają zazwyczaj administratorzy.
@@ -122,7 +122,7 @@ Tak zdefiniowana relacja jest też określana terminem \textbf{relacja bazodanow
 \begin{itemize}
     \item \textbf{Relacja nazwana} jest \textbf{nazwaną zmienną relacji} zdefiniowana w SZBD (CREATE TABLE/VIEW).
     \item \textbf{Relacja podstawowa} (autonomiczna) - wystarczająco ważna, by stanowić \textbf{nazwany niezależny byt} w bazie danych. "Przechowuje dane”.
-    \item \textbf{Relacja wyprowadzana} (pochodna) - relacja, którą można otrzymać ze zbioru nazwanych relacji za pomoca jakiegoś \textbf{wyrażenia relacyjnego}.
+    \item \textbf{Relacja wyprowadzana} (pochodna) - relacja, którą można otrzymać ze zbioru nazwanych relacji za pomocą jakiegoś \textbf{wyrażenia relacyjnego}.
     \item \textbf{Perspektywa} (widok) - \textbf{nazwana relacja pochodna}.Są \textbf{wirtualnymi zmiennymi} relacji.
     \item \textbf{Migawka} (perspektywa znormalizowana, snapshot) - \textbf{rzeczywista nazwana relacja pochodna}.
     \item \textbf{Wynik zapytania} - \textbf{nietrwała, nienazwana relacja pochodna} powstająca w wyniku realizacji \textbf{zapytania}.
@@ -155,7 +155,7 @@ Sposoby \textbf{rozwiązania} problemu \textbf{stanów niepoprawnych}:
 \end{itemize}
 
 \subsection{Schematy relacji}
-\textbf{Schemat relacji} - \textbf{zbiór atrybutów}, ozn. $R(A_1,A_2, \dots ,A_n)$. Ewentaulnie zbiór atrybutów i zbiór wszystkich reguł integralności danych.\\
+\textbf{Schemat relacji} - \textbf{zbiór atrybutów}, ozn. $R(A_1,A_2, \dots ,A_n)$. Ewentualnie zbiór atrybutów i zbiór wszystkich reguł integralności danych.\\
 \textbf{Schemat relacyjnej bazy danych} S jest \textbf{zbiorem schematów relacji}, $S=\{ R_1, R_2, \dots , R_m \}$ wraz ze zbiorem wszystkich \textbf{więzów integralności} danych.
 
 \subsection{Zależności funkcyjne}
@@ -175,7 +175,7 @@ Niech $A = \{A_1, A_2,\dots, A_n\},$ $B = \{B_1, B_2, \dots, B_m\}$ będą zbior
     \item \textbf{całkowicie nietrywialna}, jeśli $A \cap B =$  \O.
 \end{itemize}
 
-Zależność funkcyjna pojedycznego atrybutu od zbioru atrybutów - \textbf{nietrywialna}, jeśli atrybut z prawej strony nie należy do zbioru atrybutów z lewej strony. W zależności funkcyjnej zbiór wartości atrybutów z prawej strony jest zawsze zbiorem jednoelementowym.\\
+Zależność funkcyjna pojedynczego atrybutu od zbioru atrybutów - \textbf{nietrywialna}, jeśli atrybut z prawej strony nie należy do zbioru atrybutów z lewej strony. W zależności funkcyjnej zbiór wartości atrybutów z prawej strony jest zawsze zbiorem jednoelementowym.\\
 
 \subsection{Zależności wielowartościowe}
 Mówimy, że zbiór atrybutów $Y=\{Y_1, \dots ,Y_n\}$ schematu relacji R jest \textbf{wielowartościowo zależny} ($ X \twoheadrightarrow Y$ ) od zbioru atrybutów $X=\{X_1,\dots,X_m\}$, jeśli dla każdej pary krotek t i u, które mają takie same wartości atrybutów ze zbioru X, można znaleźć w tej instancji relacji krotkę w, której składowe mają wartości równe:
@@ -350,7 +350,7 @@ W większości relacyjnych systemów baz danych, wykorzystujących tzw. \textbf{
 \subsection{Dziennik transakcji}
 \begin{itemize}
     \item Zawiera \textbf{informacje o wszystkich wprowadzonych przez transakcje zmianach}.
-    \item Mogą pojawić się informacj o operacji kompensującej, dane dotyczące operacji odczytu.
+    \item Mogą pojawić się informacje o operacji kompensującej, dane dotyczące operacji odczytu.
     \item Transakcja nie zostaje uznana za zakończoną, dopóki fizycznie na dysku w pliku dziennika nie znajdą się wpisy opisujące wszystkie przeprowadzone przez transakcję zmiany oraz informacja o zatwierdzeniu transakcji.
     \item W przypadku przerwania transakcji, dzięki informacjom z dziennika można \textbf{wycofać zmiany wykonane przez transakcję}.
 \end{itemize}
@@ -371,7 +371,7 @@ W przypadku awarii dysków z danymi (bez utraty dysku z dziennikiem transakcji) 
 \textbf{Harmonogram} - inaczej historia S zbioru n transakcji $T_1, \dots, T_n$ jest takim ciągiem wszystkich operacji transakcji, że dla każdej transakcji $T_i \in S$ operacje tej transakcji w S muszą występować w takiej samej kolejności, w jakiej występują w $T_i$. Operacje z różnych transakcji mogą się przeplatać.
 
 \begin{itemize}
-    \item \textbf{Harmonogram szeregowy} - operacje każdej transakcji są wykonywane kolejno, \textbf{bez przeplatania} operacji z różnych transakcji. Są \textbf{nieefektyne}.
+    \item \textbf{Harmonogram szeregowy} - operacje każdej transakcji są wykonywane kolejno, \textbf{bez przeplatania} operacji z różnych transakcji. Są \textbf{nieefektywne}.
     \item \textbf{Harmonogram szeregowalny} - jego \textbf{wpływ} na stan bazy danych jest taki sam jak pewnego harmonogramu szeregowego.
     \item \textbf{Harmonogram nieszeregowy} - harmonogram, który nie jest sekwencyjny.
 \end{itemize}
@@ -443,7 +443,7 @@ Szeregowalność perspektywiczna to \textbf{szeregowalność konfliktowa z dodat
     Dla każdej pary transakcji $T_i$ , $T_k$ jeśli $T_k$ czyta dane zapisane przez $T_i$ , wówczas $T_i$ musi zostać \textbf{zatwierdzona przed tą operacją odczytu} z transakcji $T_k$. Wycofanie jednej transakcji powoduje konieczność wycofania innych (\textbf{kaskadowe wycofanie}) - duży koszt.\\
     
     \item \textbf{Harmonogram ścisły}\\
-    Transakcje \textbf{nie mogą odczytywać ani zapisywać elementu}, aż zostanie \textbf{zakończona} ostatnia \textbf{transakcja}, która go \textbf{zapisała}. Anulowanie transakcji - odwtorzenie obrazu pierwotnego.
+    Transakcje \textbf{nie mogą odczytywać ani zapisywać elementu}, aż zostanie \textbf{zakończona} ostatnia \textbf{transakcja}, która go \textbf{zapisała}. Anulowanie transakcji - odtworzenie obrazu pierwotnego.
 \end{itemize}
 
 \subsection{Transakcje debit-credit}
@@ -540,7 +540,7 @@ pod względem \textbf{możliwości działań}, jakie mogą być na nim w danej c
 \subsection{Zakleszczenia}
 Zakleszczenie (deadlock) występuje wówczas, gdy	\textbf{każda	 transakcja oczekuje} na	 pewien	element	 zablokowany przez inną transakcję.
 
-\subsubsection{Protokoly zapobiegania zakleszczeniom}
+\subsubsection{Protokoły zapobiegania zakleszczeniom}
 Protokoły	tego	typu	są	rzadko	wykorzystywane	w	praktyce.
 \begin{itemize}
     \item Zarządca	transakcji	sprawdza, czy transakcja	 może spowodować zakleszczenie.
